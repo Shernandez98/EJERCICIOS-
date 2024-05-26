@@ -1,0 +1,390 @@
+1
+import java.util.Scanner;
+
+public class SumaDeNumeros {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.println("Introduce el primer número:");
+        int numero1 = scanner.nextInt();
+        
+        System.out.println("Introduce el segundo número:");
+        int numero2 = scanner.nextInt();
+        
+        int suma = numero1 + numero2;
+        
+        System.out.println("La suma de " + numero1 + " y " + numero2 + " es " + suma + ".");
+    }
+}
+2
+import java.util.Scanner;
+
+public class MultiplicacionDeNumeros {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.println("Introduce el primer número:");
+        int numero1 = scanner.nextInt();
+        
+        System.out.println("Introduce el segundo número:");
+        int numero2 = scanner.nextInt();
+        
+        int resultado = numero1 * numero2;
+        
+        System.out.println("El resultado de multiplicar " + numero1 + " por " + numero2 + " es " + resultado + ".");
+    }
+}
+3
+import java.util.Scanner;
+import java.util.ArrayList;
+
+public class PromedioDeNumeros {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<Integer> numeros = new ArrayList<>();
+        int suma = 0;
+        double promedio;
+        
+        System.out.println("Introduce la cantidad de números:");
+        int cantidad = scanner.nextInt();
+        
+        for (int i = 0; i < cantidad; i++) {
+            System.out.println("Introduce el número " + (i + 1) + ":");
+            int numero = scanner.nextInt();
+            numeros.add(numero);
+            suma += numero;
+        }
+        
+        promedio = (double) suma / cantidad;
+        
+        System.out.println("El promedio es: " + promedio);
+    }
+}
+4
+import java.util.Scanner;
+
+public class FactorialDeNumero {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.println("Introduce un número para calcular su factorial:");
+        int numero = scanner.nextInt();
+        
+        int factorial = 1;
+        for (int i = 1; i <= numero; i++) {
+            factorial *= i;
+        }
+        
+        System.out.println("El factorial de " + numero + " es: " + factorial);
+    }
+}
+5
+import java.util.Scanner;
+
+public class SiguientePrimo {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingrese un número natural: ");
+        int entrada = scanner.nextInt();
+
+        // Buscar el siguiente número primo
+        while (true) {
+            entrada++;
+            if (esPrimo(entrada)) {
+                System.out.println("El siguiente número primo es: " + entrada);
+                break;
+            }
+        }
+    }
+
+    // Función para verificar si un número es primo
+    public static boolean esPrimo(int n) {
+        if (n <= 1) {
+            return false;
+        }
+        for (int i = 2; i * i <= n; i++) {
+            if (n % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+6
+import java.util.Scanner;
+
+public class TablaMultiplicar {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingrese un número para obtener su tabla de multiplicar: ");
+        int numero = scanner.nextInt();
+
+        // Imprimir la tabla de multiplicar
+        for (int i = 1; i <= 10; i++) {
+            int resultado = numero * i;
+            System.out.printf("%d x %d = %d%n", numero, i, resultado);
+        }
+    }
+}
+7
+public class FibonacciRecursivo {
+    public static void main(String[] args) {
+        int N = 10; // Cambia este valor para obtener más términos
+
+        System.out.print("Serie de Fibonacci (recursivo): ");
+        for (int i = 0; i < N; i++) {
+            System.out.print(fibonacci(i) + " ");
+        }
+    }
+
+    static int fibonacci(int n) {
+        if (n <= 1) {
+            return n;
+        }
+        return fibonacci(n - 1) + fibonacci(n - 2);
+    }
+}
+8
+import java.util.Scanner;
+
+public class MayorMenorLista {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("¿Cuántos números vas a introducir?: ");
+        int num = scanner.nextInt();
+
+        int mayor = Integer.MIN_VALUE; // Inicializamos con el valor mínimo posible
+        int menor = Integer.MAX_VALUE; // Inicializamos con el valor máximo posible
+
+        for (int i = 0; i < num; i++) {
+            System.out.print("Dime un número: ");
+            int numero = scanner.nextInt();
+
+            // Actualizamos el número mayor y menor
+            if (numero > mayor) {
+                mayor = numero;
+            }
+            if (numero < menor) {
+                menor = numero;
+            }
+        }
+
+        System.out.println("El número mayor es: " + mayor);
+        System.out.println("El número menor es: " + menor);
+    }
+}
+9
+BLUCE WHILE 
+int numero = 1234; // Cambia el número según tus necesidades
+int digitos = 0;
+int num = numero;
+while (num != 0) {
+    num = num / 10;
+    digitos++;
+}
+System.out.println("El número " + numero + " tiene " + digitos + " dígitos.");
+
+10
+import java.util.Scanner;
+
+public class InversionNumero {
+    public static void main(String[] args) {
+        int numero, invertido = 0, resto;
+        Scanner consola = new Scanner(System.in);
+
+        System.out.println("Introduce un número: ");
+        numero = consola.nextInt();
+
+        while (numero > 0) {
+            resto = numero % 10;
+            invertido = invertido * 10 + resto;
+            numero /= 10;
+        }
+
+        System.out.println("Número invertido: " + invertido);
+    }
+}
+11
+import java.util.Scanner;
+
+public class Palindromo {
+    public static void main(String[] args) {
+        Scanner sn = new Scanner(System.in);
+        sn.useDelimiter("\\n");
+
+        System.out.println("Escribe una palabra: ");
+        String palabra = sn.next().toLowerCase();
+
+        if (esPalindromo(palabra)) {
+            System.out.println("¡Es un palíndromo!");
+        } else {
+            System.out.println("No es un palíndromo.");
+        }
+    }
+12
+import java.util.Scanner;
+
+public class Factorizacion {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingresa un número entero positivo: ");
+        int numero = scanner.nextInt();
+
+        System.out.print("Factores primos de " + numero + ": ");
+        factorizar(numero);
+    }
+
+    public static void factorizar(int num) {
+        for (int i = 2; i <= num; i++) {
+            while (num % i == 0) {
+                System.out.print(i + " ");
+                num /= i;
+            }
+        }
+    }
+}
+13
+public class Main {
+    public static void main(String[] args) {
+        Rectangulo rectangulo = new Rectangulo(5.0, 3.0);
+        rectangulo.calcularArea();
+
+        // Puedes hacer lo mismo para las otras figuras geométricas (círculo, triángulo, etc.)
+    }
+}
+14
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class OrdenaNumeros {
+    public static void main(String[] args) {
+        List<Integer> lista = new ArrayList<>();
+        lista.add(5);
+        lista.add(7);
+        lista.add(3);
+
+        // Ordenar la lista de menor a mayor
+        Collections.sort(lista);
+
+        // Imprimir los números ordenados
+        for (Integer numero : lista) {
+            System.out.println(numero);
+        }
+    }
+}
+15
+Definir una base 
+double base = 5; // Cambia el valor de la base según tus necesidades
+definir una variable 
+int exponente = 3; // Cambia el valor del exponente según tus necesidades
+calcular la potencia 
+double resultado = Math.pow(base, exponente);
+imprimir recultado 
+System.out.println(base + " elevado a la potencia de " + exponente + " es igual a " + resultado);
+16
+import java.util.Scanner;
+
+public class ConversorLongitud {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Ingresa el valor: ");
+        double valor = scanner.nextDouble();
+        scanner.nextLine(); // Consumir el salto de línea
+
+        System.out.print("Ingresa la unidad (pulgadas, yardas o millas): ");
+        String unidad = scanner.nextLine().toLowerCase();
+
+        double resultado = 0.0;
+
+        switch (unidad) {
+            case "pulgadas":
+                resultado = valor * 25.4;
+                break;
+            case "yardas":
+                resultado = valor * 0.9144;
+                break;
+            case "millas":
+                resultado = valor * 1.6093;
+                break;
+            default:
+                System.out.println("Unidad no válida.");
+                return;
+        }
+
+        System.out.println("Resultado: " + resultado);
+    }
+}
+17
+public class Fibonacci {
+    public static void main(String[] args) {
+        int posicion = 20; // Cambia esta posición según tus necesidades
+        int numero = fibonacciRecursivo(posicion);
+        System.out.println("El número en la posición " + posicion + " de la sucesión de Fibonacci es: " + numero);
+    }
+
+18
+import java.util.Scanner;
+
+public class MaximoComunDivisor {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Ingresa el primer número:");
+        int num1 = scanner.nextInt();
+        System.out.println("Ingresa el segundo número:");
+        int num2 = scanner.nextInt();
+
+        int mcd = calcularMCDRecursivo(num1, num2);
+        System.out.println("El Máximo Común Divisor de " + num1 + " y " + num2 + " es: " + mcd);
+    }
+
+    public static int calcularMCDRecursivo(int a, int b) {
+        if (b == 0) {
+            return a;
+        }
+        return calcularMCDRecursivo(b, a % b);
+    }
+}
+19
+import java.util.Scanner;
+
+public class AdivinaElNumero {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int numeroMagico = (int) (Math.random() * 100) + 1; // Genera un número aleatorio entre 1 y 100
+
+        System.out.println("¡Bienvenido al juego de adivinar el número!");
+        System.out.println("Estoy pensando en un número entre 1 y 100. ¿Puedes adivinar cuál es?");
+
+        int intentos = 0;
+        int numeroUsuario;
+
+        do {
+            System.out.print("Introduce tu suposición: ");
+            numeroUsuario = scanner.nextInt();
+            intentos++;
+
+            if (numeroUsuario < numeroMagico) {
+                System.out.println("El número es mayor.");
+            } else if (numeroUsuario > numeroMagico) {
+                System.out.println("El número es menor.");
+            } else {
+                System.out.println("¡Felicidades! ¡Has adivinado el número en " + intentos + " intentos!");
+            }
+        } while (numeroUsuario != numeroMagico);
+
+        System.out.println("¡Gracias por jugar!");
+    }
+}
+20
+public class CalculoHipotenusa {
+    public static void main(String[] args) {
+        double cateto1 = 3.0; // Cambia estos valores según tus catetos
+        double cateto2 = 4.0;
+
+        double hipotenusa = Math.sqrt(Math.pow(cateto1, 2) + Math.pow(cateto2, 2));
+
+        System.out.println("La hipotenusa es: " + hipotenusa);
+    }
+}
